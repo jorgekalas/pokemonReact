@@ -42,7 +42,7 @@ const Card = ({pokemonName}) => {
         } else{
             setValidationApiError(true)
         }   
-    }, 2000)
+    }, 2500)
 
 
     //3. Reload
