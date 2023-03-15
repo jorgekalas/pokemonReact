@@ -42,7 +42,7 @@ const Card = ({pokemonName}) => {
         } else{
             setValidationApiError(true)
         }   
-    }, 2500)
+    }, 3000)
 
 
     //3. Reload
@@ -62,9 +62,14 @@ const Card = ({pokemonName}) => {
                     <div className={styles.divType}>Type: {pokemon.type}</div>
                     <div className={styles.divAbilities}>Abilities: {pokemon.abilities.join(', ')}</div>
                 </div>
+                <button className={styles.buttonVolverAEmpezar} onClick={onClickToReload}>Volver a empezar</button>
+            </div>
+            }
+            {validationApiError===true && 
+            <div>
+                <div className={styles.divError}>El nombre del Pokémon ingresado no es válido. Por favor, vuelve a empezar.</div>
+                <button className={styles.buttonVolverAEmpezar} onClick={onClickToReload}>Volver a empezar</button>
             </div>}
-            {validationApiError===true && <div className={styles.divError}>El nombre del Pokémon ingresado no es válido. Por favor, vuelve a empezar.</div>}
-            <button className={styles.buttonVolverAEmpezar} onClick={onClickToReload}>Volver a empezar</button>
             </>
     )
 
