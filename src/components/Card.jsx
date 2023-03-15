@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import styles from './Card.module.css'
+import Spinner from './Spinner'
 
 
 const Card = ({pokemonName}) => {
@@ -31,6 +32,7 @@ const Card = ({pokemonName}) => {
     useEffect(() => {
         
         getData();
+        
 
     }, [pokemonName])
 
@@ -54,7 +56,9 @@ const Card = ({pokemonName}) => {
     //4. Render
     return(
         <>
-            {validationApiError===false && <div className={styles.cardContainer}>
+            {validationApiError==="" && <Spinner />}
+            {validationApiError===false && 
+            <div className={styles.cardContainer}>
                 <img src={pokemon.imageUrl} />
                 <div>{pokemon.image}</div>
                 <div className={styles.pokemonInfo}>
@@ -63,8 +67,7 @@ const Card = ({pokemonName}) => {
                     <div className={styles.divAbilities}>Abilities: {pokemon.abilities.join(', ')}</div>
                 </div>
                 <button className={styles.buttonVolverAEmpezar} onClick={onClickToReload}>Volver a empezar</button>
-            </div>
-            }
+            </div>}
             {validationApiError===true && 
             <div>
                 <div className={styles.divError}>El nombre del Pokémon ingresado no es válido. Por favor, vuelve a empezar.</div>
