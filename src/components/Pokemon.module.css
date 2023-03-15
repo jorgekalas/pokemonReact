@@ -30,9 +30,9 @@ form button:hover{
 }
 
 .divError{
-    background-color:bisque;
+    background-color:#ffffffde;
     font-weight: bold;
-    padding: 0.5rem;
+    padding: 0.5rem 0.7rem;
     border-radius: 25px;
     color: red;
     margin-top: 15px;
